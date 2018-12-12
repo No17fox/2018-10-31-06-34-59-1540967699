@@ -1,7 +1,49 @@
 'use strict';
 
 function get_letter_interval_2(number_a, number_b) {
-  //在这里写入代码
+  const range = number_b - number_a;
+  let index = 0;
+  let collection = [];
+  if (range === 0) {
+    pushAnChartInArray(collection, number_a);
+  } else if (range > 0) {
+    for (index; index < range + 1; index++) {
+      pushAnChartInArray(collection, number_a);
+      number_a++;
+    }
+  } else {
+    for (index; index < - range + 1; index++) {
+      pushAnChartInArray(collection, number_a);
+      number_a--;
+    }
+  }
+  return collection;
+}
+
+function pushAnChartInArray(array, number) {
+  return array.push(getCharFromNumber(number));
+}
+
+function numberToString(number) {
+  return String.fromCharCode(number + 96);
+}
+
+function getCharFromNumber(number) {
+  let stringLength = number / 26;
+  let fisrtLetterCode = Math.floor(stringLength);
+  let secondLetterCode = number % 26;
+  let firstLetter = "";
+  let secondLetter = "";
+  if (stringLength <= 1) {
+    secondLetter = numberToString(number);   
+  } else if (secondLetterCode === 0) { 
+    firstLetter = numberToString(fisrtLetterCode - 1);
+    secondLetter = numberToString(26);
+  } else {
+    firstLetter = numberToString(fisrtLetterCode);
+    secondLetter = numberToString(secondLetterCode);
+  }
+  return firstLetter + secondLetter;
 }
 
 module.exports = get_letter_interval_2;
