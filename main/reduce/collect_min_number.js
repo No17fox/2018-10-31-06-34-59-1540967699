@@ -1,7 +1,15 @@
 'use strict';
 
 function collect_min_number(collection) {
-  //在这里写入代码
+  return collection.reduce(findSmallerNumber);
+}
+
+function findSmallerNumber(min, current) {
+  if (min < current) {
+    return min;
+  } else {
+    return current;
+  }
 }
 
 module.exports = collect_min_number;
