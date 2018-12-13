@@ -1,7 +1,19 @@
 'use strict';
 
-function spilt_to_zero(number, interval) {
-  //在这里写入代码
+function split_to_zero(number, interval) {
+  let collection = [];
+  decrease(collection, number * 10, interval * 10);
+  return collection;
 }
 
-module.exports = spilt_to_zero;
+function decrease(collection, number, interval) {
+  if (number <= 0) {
+    return collection.push(number / 10);
+  } else {
+    collection.push(number / 10);
+    number -= interval;
+    return decrease(collection, number, interval);
+  }
+}
+
+module.exports = split_to_zero;
