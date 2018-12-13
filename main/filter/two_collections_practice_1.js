@@ -1,15 +1,14 @@
 'use strict';
 
-function choose_common_elements(collection_a, collection_b) {
-  let intersection = [];
-  for (let i = 0; i < collection_a.length; i++) {
-    for (let j = 0; j < collection_b.length; j++) {
-      if (collection_a[i] === collection_b[j]) {
-        intersection.push(collection_a[i]);
-      }
+function choose_common_elements(collection_a, collection_b) {;
+  return collection_a.filter(function (element) {
+    for (let index = 0; index < collection_b.length; index++) {
+      if (element === collection_b[index]) {
+        return true;
+      }      
     }
-  }
-  return intersection;
+    return false;
+  })
 }
 
 module.exports = choose_common_elements;

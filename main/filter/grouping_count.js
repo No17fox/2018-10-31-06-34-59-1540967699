@@ -1,23 +1,25 @@
 'use strict';
 
 function grouping_count(collection) {
-  let elementType = {};
-  for (let i = 0; i < collection.length; i++) {
-    let differentTimes = 0;
-    for (const key in elementType) {
-      if (elementType.hasOwnProperty(key)) {
-        if (collection[i] === parseInt(key)) {
-          elementType[key] += 1;
-        } else {
-          differentTimes++;
+  let elementType = collection.filter(uniqueElement);
+  let repeatTimes = {};
+  for (let index = 0; index < elementType.length; index++) {
+    repeatTimes[elementType[index]] = 0;
+  }
+  for (let index = 0; index < collection.length; index++) {
+    for (const key in repeatTimes) {
+      if (repeatTimes.hasOwnProperty(key)) {
+        if (collection[index] === parseInt(key)) {
+          repeatTimes[key] += 1;
         }
       }
     }
-    if (differentTimes === Object.keys(elementType).length) {
-      elementType[collection[i]] = 1;
-    }
   }
-  return elementType;
+  return repeatTimes;
+}
+
+function uniqueElement(element, index, array) {
+  return array.indexOf(element) === index;
 }
 
 module.exports = grouping_count;
