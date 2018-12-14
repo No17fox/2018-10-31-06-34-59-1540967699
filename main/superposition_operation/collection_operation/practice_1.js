@@ -1,8 +1,15 @@
 'use strict';
 
 function hybrid_operation(collection) {
+  return collection.map(threeTimesAddTwo).reduce(sum);
+}
 
-  //在这里写入代码
+function sum(last, current) {
+  return last + current;
+}
+
+function multipleThreeAddTwo(element) {
+  return element * 3 + 2;
 }
 
 module.exports = hybrid_operation;
