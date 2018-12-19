@@ -1,7 +1,7 @@
 'use strict';
 
 function hybrid_operation_to_uneven(collection) {
-  return collection.filter(isOdd).map(threeTimesAddTwo);
+  return collection.filter(isOdd).map(multipleThreeAddTwo);
 }
 
 function  multipleThreeAddTwo(element) {

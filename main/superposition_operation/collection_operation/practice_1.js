@@ -1,7 +1,7 @@
 'use strict';
 
 function hybrid_operation(collection) {
-  return collection.map(threeTimesAddTwo).reduce(sum);
+  return collection.map(multipleThreeAddTwo).reduce(sum);
 }
 
 function sum(last, current) {
