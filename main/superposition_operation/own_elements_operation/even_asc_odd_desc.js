@@ -6,13 +6,7 @@ var even_asc_odd_desc = function(collection){
 };
 
 function compare(last, current) {
-  if (last < current) {
-    return -1;
-  } else if (last > current) {
-    return 1;
-  } else {
-    return 0;
-  }
+  return last - current;
 }
 
 function isEven(number) {

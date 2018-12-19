@@ -1,8 +1,7 @@
 'use strict';
 
 function even_to_letter(collection) {
-  let even = collection.filter(isEven);
-  return even.map(convertNumberToLetter);  
+  return collection.filter(isEven).map(convertNumberToLetter);
 }
 
 function isEven(number) {

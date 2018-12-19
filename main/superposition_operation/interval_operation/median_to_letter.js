@@ -1,7 +1,9 @@
 'use strict';
 
+const LETTER = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
 function median_to_letter(collection) {
-  return numberToLetter(median(collection));
+  return getLetterbyCode(median(collection));
 }
 
 function median(collection) {
@@ -13,21 +15,14 @@ function median(collection) {
   }
 }
 
-function numberToLetter(number) {
-  let multiple = number / 26;
-  let reminder = number % 26;
-  let firstCode = 0;
-  let lastCode = 0;
-  if (multiple <= 1) {
-    lastCode = number + 96;
-  } else if (reminder === 0) {
-    firstCode = multiple - 1 + 96;
-    lastCode = 26 + 96;
+function getLetterbyCode(code) {
+  if (code < LETTER.length) {
+    return LETTER[code - 1];
   } else {
-    firstCode = Math.floor(multiple) + 96;
-    lastCode = reminder + 96;
+    let firstLetter = getLetterbyCode(Math.floor((code - 1) / LETTER.length));
+    let secondLetter = LETTER[(code - 1) % LETTER.length];
+    return firstLetter + secondLetter;
   }
-  return String.fromCharCode(firstCode) + String.fromCharCode(lastCode);
 }
 
 module.exports = median_to_letter;

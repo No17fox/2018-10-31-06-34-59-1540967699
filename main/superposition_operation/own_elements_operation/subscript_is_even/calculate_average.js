@@ -1,9 +1,6 @@
 'use strict';
 var calculate_average = function(collection){
-  let evenPositionElement = [];
-  for (let i = 0; i < Math.floor(collection.length / 2); i++) {
-    evenPositionElement.push(collection[i * 2 + 1]);
-  }
+  let evenPositionElement = collection.filter((element, index) => index % 2 === 1);
   return evenPositionElement.reduce(sum) / evenPositionElement.length;
 };
 

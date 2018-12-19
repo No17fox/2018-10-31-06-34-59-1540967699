@@ -1,29 +1,29 @@
 function count_same_elements(collection) {
-  let elementType = [];
-  for (let i = 0; i < collection.length; i++) {
-    let element = collection[i].split('-');
-    if (element[1]) {
-      elementType.push({key: element[0], count: Number(element[1])});
-    } else {
-      count(collection[i], elementType);
-    }  
-  }
-  return elementType;
+  return convertObjectToArray(count(collection));
 }
 
-function count(element, collection) {
-  let differentTimes = 0;
-  for (let i = 0; i < collection.length; i++) {
-    if (element === collection[i].key) {
-      collection[i].count += 1;
+function count(collection) {
+  let elementList = {};
+  collection.map((element) => {
+    let key = element.match(/[a-zA-Z]+/g)[0];
+    let matchValue = element.match(/[0-9]+/g);
+    let summary = matchValue ? matchValue[0] : 1;
+    if (elementList[key]) {
+      elementList[key] += parseInt(summary);
     } else {
-      differentTimes++;
+      elementList[key] = parseInt(summary);
     }
-  }
-  if (differentTimes === collection.length) {
-    collection.push({key: element, count: 1});
-  }
-  differentTimes = 0;
+  });
+  return elementList;
+}
+
+function convertObjectToArray(obj) {
+  return Object.keys(obj).map((element) => {
+    return {
+      key: element,
+      count: obj[element],
+    }
+  })
 }
 
 module.exports = count_same_elements;

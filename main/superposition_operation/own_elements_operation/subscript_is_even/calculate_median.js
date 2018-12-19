@@ -1,10 +1,6 @@
 'use strict';
 var calculate_median = function(collection){
-  let evenPositionElement = [];
-  for (let i = 0; i < Math.floor(collection.length / 2); i++) {
-    evenPositionElement.push(collection[i * 2 + 1]);
-  }
-  return median(evenPositionElement);
+  return median(collection.filter((element, index) => index % 2 === 1));
 };
 
 function median(collection) {
