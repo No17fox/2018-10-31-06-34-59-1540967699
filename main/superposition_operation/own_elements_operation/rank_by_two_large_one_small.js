@@ -10,13 +10,7 @@ function rank_by_two_large_one_small(collection){
 }
 
 function compare(last, current) {
-  if (last < current) {
-    return -1;
-  } else if (last > current) {
-    return 1;
-  } else {
-    return 0;
-  }
+  return last - current;
 }
 
 module.exports = rank_by_two_large_one_small;

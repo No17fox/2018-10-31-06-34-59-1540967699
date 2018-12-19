@@ -1,9 +1,9 @@
 'use strict';
 
 function choose_divisible_integer(collection_a, collection_b) {
-  return collection_a.filter(function (element) {
-    for (let index = 0; index < collection_b.length; index++) {
-      if (element % collection_b[index] === 0) {
+  return collection_a.filter(function (element_a) {
+    for (let element_b of collection_b) {
+      if (element_a % element_b === 0) {
         return true;
       }      
     }

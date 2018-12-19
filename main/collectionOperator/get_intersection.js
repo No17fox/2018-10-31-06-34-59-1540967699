@@ -2,11 +2,9 @@
 
 function get_intersection(collection_a, collection_b) {
   let intersection = [];
-  for (let i = 0; i < collection_b.length; i++) {
-    for (let j = 0; j < collection_a.length; j++) {
-      if (collection_b[i] === collection_a[j]) {
-        intersection.push(collection_b[i]);
-      }
+  for (let element of collection_b) {
+    if (collection_a.includes(element)) {
+      intersection.push(element);
     }
   }
   return intersection;
