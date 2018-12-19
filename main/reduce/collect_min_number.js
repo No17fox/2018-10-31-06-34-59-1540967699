@@ -5,11 +5,7 @@ function collect_min_number(collection) {
 }
 
 function findSmallerNumber(min, current) {
-  if (min < current) {
-    return min;
-  } else {
-    return current;
-  }
+  return (min < current) ? min : current;
 }
 
 module.exports = collect_min_number;

@@ -2,23 +2,12 @@
 
 function get_integer_interval(number_a, number_b) {
   let collection = [];
-  let range = number_b - number_a;
-  let index = 0;
-  let number = number_a;
-  if (range === 0) {
-    collection[0] = number_a;
-  } else if (range > 0) {
-    for (index = 0; index < range + 1; index++) {
-      collection.push(number);
-      number++;
-    }
-  } else {
-    for (index = 0; index < (- range) + 1; index++) {
-      collection.push(number);
-      number--;      
-    }
+  let start = (number_a > number_b) ? number_b : number_a;
+  let end = (number_a > number_b) ? number_a : number_b;
+  for (; start <= end; start++) {
+    collection.push(start);
   }
-  return collection;
+  return (number_a <= number_b) ? collection : collection.reverse();
 }
 
 module.exports = get_integer_interval;

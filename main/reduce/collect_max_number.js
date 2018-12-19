@@ -5,11 +5,7 @@ function collect_max_number(collection) {
 }
 
 function findBiggerNumber(max, current) {
-  if (max > current) {
-    return max;
-  } else {
-    return current;
-  }
+  return (max > current) ? max : current;
 }
 
 module.exports = collect_max_number;

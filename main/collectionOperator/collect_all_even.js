@@ -1,13 +1,7 @@
 'use strict';
 
 function collect_all_even(collection) {
-  let evenCollection = [];
-  for (let index = 0; index < collection.length; index++) {
-    if (isEven(collection[index])) {
-      evenCollection.push(collection[index]);
-    };    
-  }
-  return evenCollection;
+  return collection.filter(isEven);
 }
 
 function isEven(number) {

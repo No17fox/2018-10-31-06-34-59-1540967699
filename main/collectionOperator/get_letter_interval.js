@@ -1,31 +1,16 @@
 'use strict';
 
+const LETTER = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
+let getIntegerInterval = require('./get_integer_interval.js');
+
 function get_letter_interval(number_a, number_b) {
-  const range = number_b - number_a;
-  let index = 0;
-  let collection = [];
-  if (range === 0) {
-    pushAnChartInArray(collection, number_a);
-  } else if (range > 0) {
-    for (index; index < range + 1; index++) {
-      pushAnChartInArray(collection, number_a);
-      number_a++;
-    }
-  } else {
-    for (index; index < - range + 1; index++) {
-      pushAnChartInArray(collection, number_a);
-      number_a--;
-    }
-  }
-  return collection;
+  let collection = getIntegerInterval(number_a, number_b);
+  return collection.map(getLetterFromCode);
 }
 
-function pushAnChartInArray(array, number) {
-  return array.push(numberToString(number));
-}
-
-function numberToString(number) {
-  return String.fromCharCode(number + 96);
+function getLetterFromCode(code) {
+  return LETTER[code - 1];
 }
 
 module.exports = get_letter_interval;

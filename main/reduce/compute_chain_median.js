@@ -14,13 +14,7 @@ function findMedian(array) {
 }
 
 function compare(num_a, num_b) {
-  if (num_a < num_b) {
-    return -1;
-  } else if (num_a > num_b) {
-    return 1;
-  } else {
-    return 0;
-  }
+  return num_a - num_b;
 }
 
 module.exports = compute_chain_median;
