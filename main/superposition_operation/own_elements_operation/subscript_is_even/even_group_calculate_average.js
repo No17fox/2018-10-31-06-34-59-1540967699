@@ -1,46 +1,38 @@
 'use strict';
 var even_group_calculate_average = function(collection){
-  let evenPositionElement = [];
-  for (let i = 0; i < Math.floor(collection.length / 2); i++) {
-    evenPositionElement.push(collection[i * 2 + 1]);
-  }
-  let even = evenPositionElement.filter(isEven);
-  let average = [];
+  let even = collection.filter(function (element, index) {
+    return index % 2 === 1 && element % 2 === 0;
+  });
+  let result = [];
   if (even.length === 0) {
-    average.push(0);
+    result.push(0);
   } else {
-    let lessThanTen = even.filter(isLessThanThen);
-    let lessThanHundred = even.filter(isLessThanHundred);
-    let lessThanThousand = even.filter(isLessThanThousand);
-    if (lessThanTen.length === 0 && lessThanHundred.length === 0) {
-      average.push(lessThanThousand.reduce(sum) / lessThanThousand.length);
-    } else {
-      average.push(lessThanTen.reduce(sum) / lessThanTen.length);
-      average.push(lessThanHundred.reduce(sum) / lessThanHundred.length);
-      average.push(lessThanThousand.reduce(sum) / lessThanThousand.length);
+    let tmpObj = generateDigitObj(even);
+    for (let attr in tmpObj) {
+      result.push(average(tmpObj[attr]));
     }
   }
-  return average;
+  return result;
 };
+
+function generateDigitObj(collection) {
+  let tmp = {};
+  for (let item of collection) {
+    if (tmp[item.toString().length]) {
+      tmp[item.toString().length].push(item);
+    } else {
+      tmp[item.toString().length] = [item];
+    }
+  }
+  return tmp;
+}
+
+function average(collection) {
+  return collection.reduce(sum) / collection.length;
+}
 
 function sum(last, current) {
   return last + current;
-}
-
-function isEven(number) {
-  return number % 2 === 0;
-}
-
-function isLessThanThen(number) {
-  return number < 10;
-}
-
-function isLessThanHundred(number) {
-  return number < 100 && number > 9;
-}
-
-function isLessThanThousand(number) {
-  return number < 1000 && number > 99;
 }
 
 module.exports = even_group_calculate_average;
