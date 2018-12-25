@@ -1,15 +1,5 @@
 'use strict';
 
-function amount_even(collection) {
-  return collection.filter(isEven).reduce(sum);
-}
-
-function sum(last, current) {
-  return last + current;
-}
-
-function isEven(number) {
-  return number % 2 === 0;
-}
+let amount_even = collection => collection.filter(item => item % 2 === 0).reduce((acc, cur) => acc + cur);
 
 module.exports = amount_even;

@@ -1,19 +1,11 @@
 'use strict';
-var even_asc_odd_desc = function(collection){
-  let even = collection.filter(isEven).sort(compare);
-  let odd = collection.filter(isOdd).sort(compare).reverse();
+
+let even_asc_odd_desc = collection => {
+  let even = collection.filter(item => item % 2 === 0).sort(compare);
+  let odd = collection.filter(item => item % 2 === 1).sort(compare).reverse();
   return even.concat(odd);
 };
 
-function compare(last, current) {
-  return last - current;
-}
+let compare = (last, current) => last - current;
 
-function isEven(number) {
-  return number % 2 === 0;
-}
-
-function isOdd(number) {
-  return number % 2 === 1;
-}
 module.exports = even_asc_odd_desc;

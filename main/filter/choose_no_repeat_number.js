@@ -1,13 +1,7 @@
 'use strict';
 
-function choose_no_repeat_number(collection) {
-  return collection.filter(uniqueElement);
-}
+let choose_no_repeat_number = collection => collection.filter(uniqueElement);
 
-function uniqueElement(element, index, array) {
-  return array.indexOf(element) === index;
-}
-
-
+let uniqueElement = (element, index, array) => array.indexOf(element) === index;
 
 module.exports = choose_no_repeat_number;

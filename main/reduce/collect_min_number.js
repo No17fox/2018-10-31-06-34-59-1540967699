@@ -1,12 +1,8 @@
 'use strict';
 
-function collect_min_number(collection) {
-  return collection.reduce(findSmallerNumber);
-}
+let collect_min_number = collection => collection.reduce(findSmallerNumber);
 
-function findSmallerNumber(min, current) {
-  return (min < current) ? min : current;
-}
+let findSmallerNumber = (min, current) => (min < current) ? min : current;
 
 module.exports = collect_min_number;
 

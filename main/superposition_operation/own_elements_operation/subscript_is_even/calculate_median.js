@@ -1,9 +1,8 @@
 'use strict';
-var calculate_median = function(collection){
-  return median(collection.filter((element, index) => index % 2 === 1));
-};
 
-function median(collection) {
+let calculate_median = collection => median(collection.filter((element, index) => index % 2 === 1));
+
+let median = collection => {
   let medianPosition = Math.floor(collection.length / 2);
   if (collection.length % 2 === 1) {
     return collection[medianPosition];

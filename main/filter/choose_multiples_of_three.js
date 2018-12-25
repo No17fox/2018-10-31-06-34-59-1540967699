@@ -1,11 +1,7 @@
 'use strict';
 
-function choose_multiples_of_three(collection) {
-  return collection.filter(isMultipleOfThree);
-}
+let choose_multiples_of_three = collection => collection.filter(isMultipleOfThree);
 
-function isMultipleOfThree(number) {
-  return number % 3 === 0;
-}
+let isMultipleOfThree = number => number % 3 === 0;
 
 module.exports = choose_multiples_of_three;

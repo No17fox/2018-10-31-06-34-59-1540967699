@@ -1,16 +1,6 @@
 'use strict';
 
-function hybrid_operation(collection) {
-  return collection.map(multipleThreeAddTwo).reduce(sum);
-}
-
-function sum(last, current) {
-  return last + current;
-}
-
-function multipleThreeAddTwo(element) {
-  return element * 3 + 2;
-}
+let hybrid_operation = collection => collection.map(item => item * 3 + 2).reduce((acc, cur) => acc + cur);
 
 module.exports = hybrid_operation;
 

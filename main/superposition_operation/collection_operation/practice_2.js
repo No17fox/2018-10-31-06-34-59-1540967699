@@ -1,16 +1,8 @@
 'use strict';
 
-function hybrid_operation_to_uneven(collection) {
-  return collection.filter(isOdd).map(multipleThreeAddTwo);
-}
+let hybrid_operation_to_uneven = collection => collection.filter(isOdd).map(item => item * 3 + 2);
 
-function  multipleThreeAddTwo(element) {
-  return element * 3 + 2;
-}
-
-function isOdd(number) {
-  return number % 2 === 1;
-}
+let isOdd = number => number % 2 === 1;
 
 module.exports = hybrid_operation_to_uneven;
 

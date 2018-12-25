@@ -1,27 +1,18 @@
-function count_same_elements(collection) {
-  return convertObjectToArray(count(collection));
-}
+'use strict';
 
-function count(collection) {
-  let elementType = {};
-  for (let item of collection) {
-    if (elementType[item]) {
-      elementType[item] += 1;
-    } else {
-      elementType[item] = 1;
-    }
-  }
-  return elementType;
-}
+let count_same_elements = collection => convertObjectToArray(collection.reduce((acc, cur) => {
+  acc[cur] = (acc[cur] + 1) || 1;
+  return acc;
+}, {}));
 
-function convertObjectToArray(obj) {
+let convertObjectToArray = obj => {
   return Object.keys(obj).map((element) => {
     return {
       key: element,
       count: obj[element],
     };
   });
-}
+};
 
 
 module.exports = count_same_elements;

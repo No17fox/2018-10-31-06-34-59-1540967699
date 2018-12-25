@@ -1,12 +1,12 @@
 'use strict';
 
-function split_to_zero(number, interval) {
+let split_to_zero = (number, interval) => {
   let collection = [];
   decrease(collection, number * 10, interval * 10);
   return collection;
 }
 
-function decrease(collection, number, interval) {
+let decrease = (collection, number, interval) => {
   if (number <= 0) {
     return collection.push(number / 10);
   } else {
@@ -14,6 +14,6 @@ function decrease(collection, number, interval) {
     number -= interval;
     return decrease(collection, number, interval);
   }
-}
+};
 
 module.exports = split_to_zero;

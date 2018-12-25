@@ -1,15 +1,10 @@
 'use strict';
 
-function grouping_count(collection) {
-  let countList = {};
-  for (let element of collection) {
-    if (countList[element]) {
-      countList[element] += 1;
-    } else {
-      countList[element] = 1;
-    }
-  }
-  return countList;
+let grouping_count = collection => {
+  return collection.reduce((acc, cur) => {
+    acc[cur] = (acc[cur] + 1) || 1;
+    return acc;
+  }, {});
 }
 
 module.exports = grouping_count;

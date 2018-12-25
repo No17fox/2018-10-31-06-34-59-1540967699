@@ -1,7 +1,5 @@
 'use strict';
 
-function collect_last_element(collection) {
-  return collection.pop();
-}
+let collect_last_element = collection => collection.pop();
 
 module.exports = collect_last_element;

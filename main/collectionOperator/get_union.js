@@ -1,14 +1,6 @@
 'use strict';
 
-function get_union(collection_a, collection_b) {
-  let collection = collection_a;
-  for (let element of collection_b) {
-    if (!collection_a.includes(element)) {
-      collection.push(element);
-    }
-  }
-  return collection;
-}
+let get_union = (collection_a, collection_b) => collection_a.concat(collection_b.filter(element => !collection_a.includes(element)));
 
 module.exports = get_union;
 

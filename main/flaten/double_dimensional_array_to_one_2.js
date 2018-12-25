@@ -1,14 +1,12 @@
 'use strict';
 
-function double_to_one(collection) {
-  let oneDimArry = collection.reduce(function (acc, cur) {
+let double_to_one = collection => {
+  let oneDimArry = collection.reduce((acc, cur) => {
     return acc.concat(cur);
   },[]);
   return oneDimArry.filter(uniqueElement);
-}
+};
 
-function uniqueElement(element, index, array) {
-  return array.indexOf(element) === index;
-}
+let uniqueElement = (element, index, array) => array.indexOf(element) === index;
 
 module.exports = double_to_one;

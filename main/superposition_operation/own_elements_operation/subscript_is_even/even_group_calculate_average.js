@@ -1,8 +1,7 @@
 'use strict';
-var even_group_calculate_average = function(collection){
-  let even = collection.filter(function (element, index) {
-    return index % 2 === 1 && element % 2 === 0;
-  });
+
+let even_group_calculate_average = collection => {
+  let even = collection.filter((element, index) => index % 2 === 1 && element % 2 === 0);
   let result = [];
   if (even.length === 0) {
     result.push(0);
@@ -15,7 +14,7 @@ var even_group_calculate_average = function(collection){
   return result;
 };
 
-function generateDigitObj(collection) {
+let generateDigitObj = collection => {
   let tmp = {};
   for (let item of collection) {
     if (tmp[item.toString().length]) {
@@ -25,14 +24,8 @@ function generateDigitObj(collection) {
     }
   }
   return tmp;
-}
+};
 
-function average(collection) {
-  return collection.reduce(sum) / collection.length;
-}
-
-function sum(last, current) {
-  return last + current;
-}
+let average = collection => collection.reduce((acc, cur) => acc + cur) / collection.length;
 
 module.exports = even_group_calculate_average;

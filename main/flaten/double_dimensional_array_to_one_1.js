@@ -1,9 +1,7 @@
 'use strict';
 
-function double_to_one(collection) {
-  return collection.reduce(function (acc, cur) {
+let double_to_one = collection => collection.reduce((acc, cur) => {
     return acc.concat(cur);
   },[]);
-}
 
 module.exports = double_to_one;

@@ -1,11 +1,8 @@
 'use strict';
-var calculate_average = function(collection){
-  let evenPositionElement = collection.filter((element, index) => index % 2 === 1);
-  return evenPositionElement.reduce(sum) / evenPositionElement.length;
-};
 
-function sum(last, current) {
-  return last + current;
-}
+let calculate_average = collection =>{
+  let evenPositionElement = collection.filter((element, index) => index % 2 === 1);
+  return evenPositionElement.reduce((acc, cur) => acc + cur) / evenPositionElement.length;
+};
 
 module.exports = calculate_average;

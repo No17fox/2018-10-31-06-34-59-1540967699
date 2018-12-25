@@ -1,20 +1,12 @@
 'use strict';
 
-function hybrid_operation_to_uneven(collection) {
-  return collection.filter(isOdd).map(multipleThreeAddFive).reduce(sum);
-}
+let hybrid_operation_to_uneven = collection => collection.filter(isOdd).map(multipleThreeAddFive).reduce(sum);
 
-function sum(last, current) {
-  return last + current;
-}
+let sum = (last, current) => last + current;
 
-function multipleThreeAddFive(element) {
-  return element * 3 + 5;
-}
+let multipleThreeAddFive = element => element * 3 + 5;
 
-function isOdd(number) {
-  return number % 2 === 1;
-}
+let isOdd = number => number % 2 === 1;
 
 
 module.exports = hybrid_operation_to_uneven;

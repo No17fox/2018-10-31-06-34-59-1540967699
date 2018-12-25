@@ -1,9 +1,7 @@
-function collect_same_elements(collection_a, collection_b) {
-  return collection_a.filter((element) => flaten(collection_b).includes(element));
-}
+'use strict';
 
-function flaten(collection) {
-  return collection.reduce((acc, cur) => acc.concat(cur), []);
-}
+let collect_same_elements = (collection_a, collection_b) => collection_a.filter((element) => flaten(collection_b).includes(element));
+
+let flaten = collection => collection.reduce((acc, cur) => acc.concat(cur), []);
 
 module.exports = collect_same_elements;

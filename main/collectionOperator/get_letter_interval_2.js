@@ -2,17 +2,11 @@
 
 const LETTER = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-function get_letter_interval_2(number_a, number_b) {
-  let start = (number_a >= number_b) ? number_b : number_a;
-  let end = (number_a >= number_b) ? number_a : number_b;
-  let result = [];
-  for (; start <= end; start++) {
-    result.push(getLetterByCode(start));
-  }
-  return (number_a <= number_b) ? result : result.reverse();
-}
+let getIntegerInterval = require('./get_integer_interval.js');
 
-function getLetterByCode(code) {
+let get_letter_interval_2 = (number_a, number_b) => getIntegerInterval(number_a, number_b).map(getLetterByCode);
+
+let getLetterByCode = code => {
   if (code <= LETTER.length) {
     return LETTER[code - 1];
   } else {

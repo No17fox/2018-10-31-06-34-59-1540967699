@@ -1,12 +1,6 @@
 'use strict';
 
-function calculate_elements_sum(collection) {
-  return collection.reduce(sum);
-}
-
-function sum(accumulate, currentElement) {
-  return accumulate + currentElement;
-}
+let calculate_elements_sum = collection => collection.reduce((acc, cur) => acc += cur);
 
 module.exports = calculate_elements_sum;
 

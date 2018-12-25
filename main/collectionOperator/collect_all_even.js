@@ -1,11 +1,7 @@
 'use strict';
 
-function collect_all_even(collection) {
-  return collection.filter(isEven);
-}
+let collect_all_even = collection => collection.filter(isEven);
 
-function isEven(number) {
-  return number % 2 === 0;
-}
+let isEven = number => number % 2 === 0;
 
 module.exports = collect_all_even;
